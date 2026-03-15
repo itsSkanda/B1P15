@@ -1,6 +1,25 @@
 import java.util.Scanner;
 
-public class UseCase4PalindromeCheckerApp {
+class PalindromeChecker {
+
+    public boolean checkPalindrome(String input) {
+
+        int start = 0;
+        int end = input.length() - 1;
+
+        while (start < end) {
+            if (input.charAt(start) != input.charAt(end)) {
+                return false;
+            }
+            start++;
+            end--;
+        }
+
+        return true;
+    }
+}
+
+public class UseCase11PalindromeCheckerApp {
 
     public static void main(String[] args) {
 
@@ -14,22 +33,11 @@ public class UseCase4PalindromeCheckerApp {
         System.out.print("Enter a string: ");
         String input = scanner.nextLine();
 
-        char[] characters = input.toCharArray();
+        PalindromeChecker checker = new PalindromeChecker();
 
-        int start = 0;
-        int end = characters.length - 1;
-        boolean isPalindrome = true;
+        boolean result = checker.checkPalindrome(input);
 
-        while (start < end) {
-            if (characters[start] != characters[end]) {
-                isPalindrome = false;
-                break;
-            }
-            start++;
-            end--;
-        }
-
-        if (isPalindrome) {
+        if (result) {
             System.out.println("The given string is a Palindrome.");
         } else {
             System.out.println("The given string is NOT a Palindrome.");
