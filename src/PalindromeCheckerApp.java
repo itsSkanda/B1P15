@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class UseCase4PalindromeCheckerApp {
+public class UseCase10PalindromeCheckerApp {
 
     public static void main(String[] args) {
 
@@ -14,14 +14,14 @@ public class UseCase4PalindromeCheckerApp {
         System.out.print("Enter a string: ");
         String input = scanner.nextLine();
 
-        char[] characters = input.toCharArray();
+        String normalized = input.replaceAll("\\s+", "").toLowerCase();
 
         int start = 0;
-        int end = characters.length - 1;
+        int end = normalized.length() - 1;
         boolean isPalindrome = true;
 
         while (start < end) {
-            if (characters[start] != characters[end]) {
+            if (normalized.charAt(start) != normalized.charAt(end)) {
                 isPalindrome = false;
                 break;
             }
